@@ -101,10 +101,12 @@ def main():
     df_cut['shape_id'] = df.loc[df_cut['image_id'].values, 'shape_id'].values
     save_to_cache(df_cut, 'train_df_256_fixed')
 
+    """
     for df_name in ['2009isbi','TNBC', 'weebly']:
         df = load_from_cache(df_name)
         df_cut = resave(df, config)
         save_to_cache(df_cut, '{}_256'.format(df_name))
+    """
 
 
 if __name__ == "__main__":   

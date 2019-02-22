@@ -24,6 +24,7 @@ def is_gray(image):
         return np.all((image[:,:,0]==image[:,:,2])&(image[:,:,0]==image[:,:,1]))
     
 def get_train_df(train_dir, save_name):
+    print("getting train df")
     train_ids = list(next(os.walk(train_dir)))[1]
     train_df = []
     for id_ in train_ids:
@@ -41,10 +42,12 @@ def get_train_df(train_dir, save_name):
                          'nb_instance':mask.max()})
     train_df = pd.DataFrame(train_df).sort_values('shape').reset_index()
     train_df['shape_id'] = LabelEncoder().fit_transform(train_df['shape'])
+    print("saving train df")
     save_to_cache(train_df, save_name)    
 
     
 def get_test_df(test_dir, save_name='test_df'):
+    print("getting test df")
     test_ids = list(next(os.walk(test_dir)))[1]
     test_df = []
     for id_ in test_ids:
@@ -53,6 +56,7 @@ def get_test_df(test_dir, save_name='test_df'):
         test_df.append({'id':id_, 'image':image, 'path': path, 
                          'shape':image.shape})
     test_df = pd.DataFrame(test_df).sort_values('shape').reset_index()
+    print("saving train df")
     save_to_cache(test_df, save_name)    
 
 def train_valid_split():

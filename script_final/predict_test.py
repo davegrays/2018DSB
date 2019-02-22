@@ -50,6 +50,7 @@ def predict_test_rcnn(df_name, weight_dir, weight_fl = None):
     if weight_fl is None:
         weight_fls = glob.glob(os.path.join(weight_dir, '*.hdf5'))
         weight_fls = sorted(weight_fls, key = lambda x: float(os.path.basename(x)[:-5].split('_')[-1]))
+        print(weight_fls)
         weight_fl = weight_fls[0]
 
     for nb, shape in enumerate(vals):

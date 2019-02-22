@@ -18,7 +18,7 @@ def main():
     df_name = 'stage2_df'
     save_name = 'stage2'
     ###################################################################################
-    weight_dir = '/home/work/data/dsb/cache/UnetRCNN_180410-221747'
+    weight_dir = '/home/ubuntu/git_repos/2018DSB/cache/UnetRCNN_180410-221747'
     #correct directory address where model weight for prediction is saved
     ##################################################################################
     predict_test_rcnn(df_name, weight_dir)
